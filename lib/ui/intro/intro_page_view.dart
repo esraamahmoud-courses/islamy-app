@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/routes/app_routes.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_fonts.dart';
 
@@ -104,20 +105,63 @@ class _IntroPageViewState extends State<IntroPageView> {
         SizedBox(height: size.height * .05),
 
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(
-            _items.length,
-            (index) => AnimatedContainer(
-              duration: const Duration(milliseconds: 250),
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              height: 8,
-              width: _currentPage == index ? 20 : 8,
-              decoration: BoxDecoration(
-                color: _currentPage == index ? AppColors.gold : AppColors.gray,
-                borderRadius: BorderRadius.circular(4),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _currentPage > 0
+                ? TextButton(
+                    onPressed: () {
+                      _pageController.previousPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: Text(
+                      "Back",
+                      style: labelMedium(weight: .bold, color: AppColors.gold),
+                    ),
+                  )
+                : SizedBox(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                _items.length,
+                (index) => AnimatedContainer(
+                  duration: const Duration(milliseconds: 250),
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  height: 8,
+                  width: _currentPage == index ? 20 : 8,
+                  decoration: BoxDecoration(
+                    color: _currentPage == index
+                        ? AppColors.gold
+                        : AppColors.gray,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
               ),
             ),
-          ),
+            _currentPage != _items.length - 1
+                ? TextButton(
+                    onPressed: () {
+                      _pageController.nextPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: Text(
+                      "Next",
+                      style: labelMedium(weight: .bold, color: AppColors.gold),
+                    ),
+                  )
+                : TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, AppRoutes.home);
+                    },
+                    child: Text(
+                      "Finish",
+                      style: labelMedium(weight: .bold, color: AppColors.gold),
+                    ),
+                  ),
+          ],
         ),
         // Simple Dot Indicator
       ],
