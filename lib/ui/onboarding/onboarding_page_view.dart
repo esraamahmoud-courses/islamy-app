@@ -4,14 +4,14 @@ import '../../core/routes/app_routes.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_fonts.dart';
 
-class IntroPageView extends StatefulWidget {
-  const IntroPageView({super.key});
+class OnboardingPageView extends StatefulWidget {
+  const OnboardingPageView({super.key});
 
   @override
-  State<IntroPageView> createState() => _IntroPageViewState();
+  State<OnboardingPageView> createState() => _OnboardingPageViewState();
 }
 
-class _IntroPageViewState extends State<IntroPageView> {
+class _OnboardingPageViewState extends State<OnboardingPageView> {
   final PageController _pageController = PageController(viewportFraction: 1.0);
   int _currentPage = 0;
 
@@ -120,7 +120,7 @@ class _IntroPageViewState extends State<IntroPageView> {
                       style: labelMedium(weight: .bold, color: AppColors.gold),
                     ),
                   )
-                : SizedBox(),
+                : TextButton(onPressed: () {}, child: Text("")),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(

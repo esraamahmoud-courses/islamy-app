@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:islamy_app/core/theme/app_colors.dart';
 
 import '../../core/shared/title/islami_title.dart';
-import '../../core/theme/app_fonts.dart';
-import 'intro_page_view.dart';
+import 'onboarding_page_view.dart';
 
-class IntroScreens extends StatefulWidget {
-  const IntroScreens({super.key});
+class OnboardingScreens extends StatefulWidget {
+  const OnboardingScreens({super.key});
 
   @override
-  State<IntroScreens> createState() => _IntroScreensState();
+  State<OnboardingScreens> createState() => _OnboardingScreensState();
 }
 
-class _IntroScreensState extends State<IntroScreens> {
+class _OnboardingScreensState extends State<OnboardingScreens> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -29,7 +28,7 @@ class _IntroScreensState extends State<IntroScreens> {
               Expanded(
                 child: Padding(
                   padding: EdgeInsetsGeometry.all(16),
-                  child: IntroPageView(),
+                  child: OnboardingPageView(),
                 ),
               ),
 

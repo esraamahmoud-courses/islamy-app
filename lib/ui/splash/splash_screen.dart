@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 3), () {
       Navigator.pushNamed(context, AppRoutes.intro);
     });
   }
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Image.asset("assets/images/splash_bg.png", fit: BoxFit.cover),
           Center(
             child: ZoomIn(
-              duration: Duration(milliseconds: 800),
+              duration: Duration(milliseconds: 500),
               child: Image.asset(
                 "assets/images/islami_logo.png",
                 width: size.width * .4,
@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SlideInUp(
-                  duration: Duration(milliseconds: 800),
+                  duration: Duration(milliseconds: 500),
                   child: Image.asset(
                     "assets/images/img_branding.png",
                     width: size.width * .6,
@@ -57,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
             left: 0,
             top: size.height * .23,
             child: SlideInLeft(
-              duration: Duration(milliseconds: 800),
+              duration: Duration(seconds: 2),
               child: Image.asset("assets/images/Shape_left.png"),
             ),
           ),
@@ -67,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Transform.flip(
               flipX: true,
               child: SlideInLeft(
-                duration: Duration(milliseconds: 800),
+                duration: Duration(seconds: 2),
                 child: Image.asset("assets/images/Shape_left.png"),
               ),
             ),
@@ -77,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
             right: 0,
             top: size.height * .04,
             child: ZoomIn(
-              duration: Duration(milliseconds: 800),
+              duration: Duration(seconds: 2),
               child: Image.asset("assets/images/Mosque.png"),
             ),
           ),
@@ -85,7 +85,7 @@ class _SplashScreenState extends State<SplashScreen> {
             top: 0,
             right: .12,
             child: SlideInDown(
-              duration: Duration(milliseconds: 800),
+              duration: Duration(seconds: 2),
               child: Image.asset(
                 "assets/images/Glow.png",
                 width: size.width * .25,
