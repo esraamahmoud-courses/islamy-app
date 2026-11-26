@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_app/core/theme/app_colors.dart';
 
+import '../../core/shared/title/islami_title.dart';
 import '../../core/theme/app_fonts.dart';
 import 'intro_page_view.dart';
 
@@ -23,31 +24,7 @@ class _IntroScreensState extends State<IntroScreens> {
           padding: EdgeInsets.symmetric(vertical: size.height * .02),
           child: Column(
             children: [
-              Stack(
-                children: [
-                  Image.asset("assets/images/Mosque.png"),
-                  Positioned(
-                    top: size.height * .07,
-                    left: 0,
-                    right: 0,
-
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Islami',
-                          style: titleLarge(
-                            family: "Kamali",
-                            weight: .normal,
-                            size: 80,
-                            color: AppColors.gold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              IslamiTitle(),
               SizedBox(height: size.height * .03),
               Expanded(
                 child: Padding(
