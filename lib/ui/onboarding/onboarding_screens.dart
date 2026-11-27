@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_app/core/theme/app_colors.dart';
 
-import '../../core/shared/title/islami_title.dart';
 import 'onboarding_page_view.dart';
 
 class OnboardingScreens extends StatefulWidget {
@@ -23,7 +22,10 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
           padding: EdgeInsets.symmetric(vertical: size.height * .02),
           child: Column(
             children: [
-              IslamiTitle(),
+              Image.asset(
+                "assets/images/title_logo.png",
+                width: size.width * .7,
+              ),
               SizedBox(height: size.height * .03),
               Expanded(
                 child: Padding(

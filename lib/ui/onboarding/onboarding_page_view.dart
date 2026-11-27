@@ -64,7 +64,6 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
               itemCount: _items.length,
               onPageChanged: (index) => setState(() => _currentPage = index),
               itemBuilder: (context, index) {
-                // Optional: Scale down non-active cards smoothly
                 return AnimatedBuilder(
                   animation: _pageController,
                   builder: (context, child) {
@@ -163,7 +162,6 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
                   ),
           ],
         ),
-        // Simple Dot Indicator
       ],
     );
   }

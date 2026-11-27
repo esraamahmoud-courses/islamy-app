@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islamy_app/core/shared/title/islami_title.dart';
 import 'package:islamy_app/core/theme/app_fonts.dart';
 
 import '../../core/theme/app_colors.dart';
@@ -19,56 +18,35 @@ class _SebhaScreenState extends State<SebhaScreen>
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      backgroundColor: AppColors.black,
-      body: Stack(
-        children: [
-          Image.asset("assets/images/ssebha_bg.png", fit: BoxFit.cover),
-          Padding(
-            padding: EdgeInsets.all(size.height * .03),
-            child: Center(
+    return Column(
+      children: [
+        SizedBox(height: size.height * .03),
+
+        Text("سَبِّحِ اسْمَ رَبِّكَ الأعلى", style: titleLarge(size: 36)),
+        SizedBox(height: size.height * .03),
+
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset("assets/images/sebha_img.png"),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  counter++;
+                });
+              },
               child: Column(
                 children: [
-                  IslamiTitle(),
-                  SizedBox(height: size.height * .03),
-                  Text(
-                    "سَبِّحِ اسْمَ رَبِّكَ الأعلى",
-                    style: titleLarge(size: 36),
-                  ),
-                  SizedBox(height: size.height * .03),
-
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Image.asset("assets/images/img.png"),
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            counter++;
-                          });
-                        },
-                        child: Column(
-                          children: [
-                            SizedBox(height: size.height * .1),
-                            Text("سبحان الله", style: titleLarge(size: 36)),
-                            SizedBox(height: size.height * .02),
-                            Text(
-                              counter.toString(),
-                              style: titleLarge(size: 36),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                  SizedBox(height: size.height * .1),
+                  Text("سبحان الله", style: titleLarge(size: 36)),
+                  SizedBox(height: size.height * .02),
+                  Text(counter.toString(), style: titleLarge(size: 36)),
                 ],
               ),
             ),
-          ),
-
-          // Simple Dot Indicator
-        ],
-      ),
+          ],
+        ),
+      ],
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamy_app/ui/home/widgets/base_tab.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../sebha/sebha_screen.dart';
@@ -13,11 +14,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
   List<Widget> taps = [
-    SebhaScreen(),
-    SebhaScreen(),
-    SebhaScreen(),
-    SebhaScreen(),
-    SebhaScreen(),
+    BaseTab(image: "assets/images/quran_bg.png", child: Placeholder()),
+    BaseTab(image: "assets/images/hadeth_bg.png", child: Placeholder()),
+    BaseTab(image: "assets/images/ssebha_bg.png", child: SebhaScreen()),
+    BaseTab(image: "assets/images/radio_bg.png", child: Placeholder()),
+    BaseTab(image: "assets/images/time_bg.png", child: Placeholder()),
   ];
 
   @override
@@ -81,12 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _bottomNavigationBarWidget(String path, bool isSelected) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 600),
-      child: ImageIcon(AssetImage(path)),
       padding: EdgeInsetsGeometry.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: isSelected ? AppColors.black.withAlpha(100) : Colors.transparent,
         borderRadius: BorderRadius.circular(100),
       ),
+      child: ImageIcon(AssetImage(path)),
     );
   }
 }
